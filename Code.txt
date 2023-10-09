@@ -1,0 +1,127 @@
+// Code file
+import java.util.*;
+
+public class CalorieTrackerT63 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Display the introduction and explanation of the program
+        displayIntroduction();
+
+        // Get user input for age, gender, weight, and goal
+        int age = getUserInputInt(scanner, "Enter your age: ");
+        String gender = getUserInputString(scanner, "Enter your gender (male/female): ");
+        double weight = getUserInputDouble(scanner, "Enter your weight (in kg): ");
+        int goalCalories = getUserInputInt(scanner, "Enter your daily calorie goal: ");
+
+        // Determine the category based on age, gender, and weight
+        String category = determineCategory(age, gender, weight);
+
+        // Get user input for daily calorie intake
+        int dailyCalories = getUserInputInt(scanner, "Enter your daily calorie intake: ");
+
+        // Calculate and display the average calorie intake
+        double averageCalories = calculateAverageCalories(dailyCalories);
+        System.out.println("Your average daily calorie intake is: " + averageCalories + " calories");
+
+        // Compare the average calorie intake with the goal
+        String goalStatus = compareWithGoal(averageCalories, goalCalories);
+        System.out.println("Goal Status: " + goalStatus);
+
+        // Suggest a diet plan based on the category
+        String dietPlanBasedOnCategory = suggestDietPlan(category);
+        System.out.println("Recommended Diet Plan:\n" + dietPlanBasedOnCategory);
+
+        // Display nutritional analysis and motivational quote
+        displayNutritionalAnalysis(category);
+        displayMotivationalQuote();
+
+        // Close the scanner
+        scanner.close();
+    }
+
+    private static String suggestDietPlan(String category) {
+        switch (category) {
+            case "Low-Calorie":
+                return "Low-Calorie Diet Plan:\n" +
+                       "- Focus on consuming a variety of fruits and vegetables, as they are low in calories but high in essential nutrients and fiber.\n" +
+                       "- Include lean sources of protein like skinless poultry, fish, tofu, or legumes to help maintain muscle mass.\n" +
+                       "- Choose whole grains such as brown rice, quinoa, and whole wheat bread for sustained energy.\n" +
+                       "- Limit high-calorie and sugary foods, such as sugary drinks, pastries, and fried snacks.\n" +
+                       "- Stay well-hydrated by drinking plenty of water throughout the day.";
+
+            case "Average-Calorie":
+                return "Average-Calorie Diet Plan:\n" +
+                       "- Maintain a balanced diet with a mix of carbohydrates, proteins, and fats.\n" +
+                       "- Incorporate a variety of colorful fruits and vegetables into your meals to ensure you get a wide range of vitamins and minerals.\n" +
+                       "- Include lean proteins such as chicken, turkey, fish, lean cuts of beef, and plant-based sources like beans and lentils.\n" +
+                       "- Opt for whole grains like oats, brown rice, and whole wheat pasta for sustained energy and fiber.\n" +
+                       "- Be mindful of portion sizes to avoid overeating.\n" +
+                       "- Limit the consumption of sugary snacks and high-calorie processed foods.\n" +
+                       "- Stay hydrated by drinking an adequate amount of water daily.";
+
+            case "High-Calorie":
+                return "High-Calorie Diet Plan:\n" +
+                       "- Focus on increasing your protein intake to support muscle growth and repair. Include lean meats, poultry, fish, and plant-based protein sources like beans and nuts.\n" +
+                       "- Incorporate healthy fats from sources like avocados, nuts, seeds, and olive oil.\n" +
+                       "- Consume complex carbohydrates like whole grains, brown rice, sweet potatoes, and oats to provide sustained energy.\n" +
+                       "- Ensure you're getting a variety of fruits and vegetables to meet your vitamin and mineral needs.\n" +
+                       "- Divide your meals into smaller, more frequent portions to avoid overeating.\n" +
+                       "- Be mindful of the quality of calories you consume and prioritize nutrient-dense foods over empty-calorie options.\n" +
+                       "- Stay well-hydrated by drinking plenty of water throughout the day.";
+
+            default:
+                return "No specific diet plan available for this category.";
+        }
+    }
+
+    private static void displayIntroduction() {
+        System.out.println("Welcome to the Calorie Tracker Program.");
+        System.out.println("This program helps you monitor your calorie intake and provides personalized diet plans.");
+        System.out.println("Let's get started!");
+    }
+
+    private static int getUserInputInt(Scanner scanner, String prompt) {
+        System.out.print(prompt);
+        return scanner.nextInt();
+    }
+
+    private static String getUserInputString(Scanner scanner, String prompt) {
+        System.out.print(prompt);
+        return scanner.next(); // Use next() for strings
+    }
+
+    private static double getUserInputDouble(Scanner scanner, String prompt) {
+        System.out.print(prompt);
+        return scanner.nextDouble();
+    }
+
+    private static String determineCategory(int age, String gender, double weight) {
+        return "Category"; // Placeholder
+    }
+
+    private static double calculateAverageCalories(int dailyCalories) {
+        
+        return dailyCalories;
+    }
+
+    private static String compareWithGoal(double averageCalories, int goalCalories) {
+        // Implement this method to compare the average calorie intake with the goal
+        if (averageCalories < goalCalories) {
+            return "You are below your daily calorie goal.";
+        } else if (averageCalories > goalCalories) {
+            return "You have exceeded your daily calorie goal.";
+        } else {
+            return "You have reached your daily calorie goal.";
+        }
+    }
+
+    private static void displayNutritionalAnalysis(String category) {
+        //aa
+    }
+
+    private static void displayMotivationalQuote() {
+        // Implement this method to display a motivational quote
+        System.out.println("Motivational Quote: 'Your health is your wealth.'");
+    }
+}
